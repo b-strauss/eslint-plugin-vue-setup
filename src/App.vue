@@ -49,8 +49,6 @@ defineExpose({
   </div>
 </header>
 
-<template></template>
-
 <main>
   <TheWelcome/>
 </main>

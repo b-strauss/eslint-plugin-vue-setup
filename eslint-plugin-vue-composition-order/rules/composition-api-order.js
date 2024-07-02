@@ -11,6 +11,14 @@ module.exports = {
     fixable: 'code',
   },
   create (context) {
+    if (!utils.isScriptSetup(context)) {
+      return {};
+    }
+
     return {};
+
+    // return utils.defineScriptSetupVisitor(context, {
+    //
+    // });
   },
 };

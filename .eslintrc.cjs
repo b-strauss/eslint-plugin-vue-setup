@@ -4,7 +4,10 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 module.exports = {
   root: true,
   ignorePatterns: [
-    'script/**/*.js',
+    'eslint-plugin-vue-composition-order/**/*.js',
+  ],
+  plugins: [
+    'vue-composition-order',
   ],
   'extends': [
     'plugin:vue/vue3-essential',
@@ -13,5 +16,8 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
+  },
+  rules: {
+    'vue-composition-order/composition-api-order': 'error',
   },
 };
