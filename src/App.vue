@@ -27,10 +27,10 @@ const attrs = useAttrs();
 
 const title = ref('title');
 
-const doubleTitle = computed(() => title.value + title.value);
-
 function fooBar () {
 }
+
+const doubleTitle = computed(() => title.value + title.value);
 
 function wambo () {
 }

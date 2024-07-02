@@ -15,7 +15,14 @@ module.exports = {
       return {};
     }
 
-    return {};
+    return {
+      FunctionDeclaration: (node) => {
+        context.report({
+          node: node,
+          message: "Must come after bla"
+        });
+      },
+    };
 
     // return utils.defineScriptSetupVisitor(context, {
     //
