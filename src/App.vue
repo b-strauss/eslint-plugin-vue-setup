@@ -1,21 +1,58 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import {computed, ref, useAttrs} from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
+import TheWelcome from './components/TheWelcome.vue';
+
+defineOptions({
+  inheritAttrs: false,
+});
+
+const props = defineProps<{
+  foo: string
+  bar?: number
+}>();
+
+const slots = defineSlots<{
+  default (props: { msg: string }): any
+}>();
+
+const emit = defineEmits<{
+  change: [id: number] // named tuple syntax
+  update: [value: string]
+}>();
+
+const count = defineModel('count');
+
+const attrs = useAttrs();
+
+const title = ref('title');
+
+const doubleTitle = computed(() => title.value + title.value);
+
+function fooBar () {
+}
+
+function wambo () {
+}
+
+defineExpose({
+  title,
+});
 </script>
 
 <template>
 <header>
-  <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
 
   <div class="wrapper">
-    <HelloWorld  msg="You did it!" />
+    <HelloWorld msg="You did it!"/>
   </div>
 </header>
 
-<template key="test"></template>
+<template></template>
 
 <main>
-  <TheWelcome />
+  <TheWelcome/>
 </main>
 </template>
 
